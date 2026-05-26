@@ -17,8 +17,8 @@ https://hecti12.github.io
 ## Current IT Project Links
 
 - Active Directory lab: https://github.com/Hecti12/active-directory-lab
-- Active Directory video part 1: https://youtu.be/07iRTN0Dk5U
-- Active Directory video part 2: https://youtu.be/DoopP38VtHk
+- Active Directory video part 1, overview/GPO/password lockout/drive share: https://youtu.be/07iRTN0Dk5U
+- Active Directory video part 2, NIC/DNS/static IP/domain onboarding/workstation setup: https://youtu.be/DoopP38VtHk
 - DNS traffic lab: https://github.com/Hecti12/dns-traffic
 
 ## Update Notes
