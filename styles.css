@@ -479,6 +479,42 @@ code {
   margin-top: 0;
 }
 
+.video-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.video-link {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid rgba(183, 134, 59, 0.28);
+  border-radius: 8px;
+  color: inherit;
+  background: rgba(183, 134, 59, 0.1);
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.video-link:hover,
+.video-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(183, 134, 59, 0.62);
+  background: rgba(183, 134, 59, 0.16);
+}
+
+.video-link strong {
+  color: var(--gold);
+  line-height: 1.25;
+}
+
+.video-link span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .timeline {
   display: grid;
   gap: 18px;
