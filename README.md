@@ -14,6 +14,12 @@ https://hecti12.github.io
 - `assets/headshot.png` - professional headshot used by the homepage and sidebar
 - `assets/project-*.png` - project images used by the IT and analytics cards
 
+## Current IT Project Links
+
+- Active Directory lab: https://github.com/Hecti12/active-directory-lab
+- Active Directory videos: https://youtu.be/07iRTN0Dk5U and https://youtu.be/DoopP38VtHk
+- DNS traffic lab: https://github.com/Hecti12/dns-traffic
+
 ## Update Notes
 
 When new project repositories are ready, add them to either the `#it-projects` or `#analytics-projects` section in `index.html`.

@@ -2,7 +2,8 @@ const roles = [
   "IT support analyst",
   "help desk candidate",
   "business analytics translator",
-  "Azure and Active Directory learner",
+  "Active Directory lab builder",
+  "DNS troubleshooting documenter",
   "bilingual technical communicator",
 ];
 
