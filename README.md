@@ -13,6 +13,7 @@ https://hecti12.github.io
 - `app.js` - mobile navigation, active section state, and intro typing effect
 - `assets/headshot.png` - professional headshot used by the homepage and sidebar
 - `assets/project-*.png` - project images used by the IT and analytics cards
+- `assets/hector-enriquez-orellana-resume-it.pdf` - downloadable resume used by site buttons
 
 ## Current IT Project Links
 
