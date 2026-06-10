@@ -3,6 +3,7 @@ const roles = [
   "help desk candidate",
   "business analytics translator",
   "Active Directory lab builder",
+  "GPU and hardware troubleshooter",
   "DNS troubleshooting documenter",
   "bilingual technical communicator",
 ];
@@ -65,3 +66,54 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
 typeRole();
+
+/* ---------- Scroll reveal ---------- */
+// Tag additional blocks so they fade/slide in on scroll (project + skill cards are tagged in HTML).
+document
+  .querySelectorAll(
+    ".section-heading, .about-grid > *, .timeline article, .analytics-card, .credential-grid article, .contact-cards a, .contact-section > div:first-of-type",
+  )
+  .forEach((el) => el.classList.add("reveal"));
+
+// Stagger the cards within a grid so they "pop in" one after another.
+const stagger = (selector, step) => {
+  document.querySelectorAll(selector).forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * step, 360)}ms`;
+  });
+};
+stagger("#project-grid .reveal", 90);
+stagger(".skill-grid .reveal", 70);
+stagger(".analytics-grid .reveal", 90);
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      revealObserver.unobserve(entry.target);
+    });
+  },
+  { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+);
+
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+/* ---------- Project filtering ---------- */
+const projFilters = document.querySelectorAll(".proj-filter");
+const projCards = document.querySelectorAll("#project-grid .project-card");
+
+projFilters.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    projFilters.forEach((f) => {
+      const active = f === btn;
+      f.classList.toggle("is-active", active);
+      f.setAttribute("aria-selected", String(active));
+    });
+
+    const filter = btn.dataset.filter;
+    projCards.forEach((card) => {
+      const show = filter === "all" || card.dataset.category === filter;
+      card.classList.toggle("hide", !show);
+    });
+  });
+});

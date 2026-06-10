@@ -370,7 +370,116 @@ h3 {
 
 .project-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
+  align-items: stretch;
+}
+
+/* Cards in the same row share a height so there are no obvious gaps between them. */
+.project-grid .project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-grid .project-card .project-body {
+  flex: 1 1 auto;
+}
+
+/* A single leftover card spans the full width so the last row never looks half-empty. */
+.project-grid .wide-card {
+  grid-column: 1 / -1;
+}
+
+.nvidia-card {
+  border-color: rgba(118, 185, 0, 0.42);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+}
+
+.nvidia-card img {
+  background: #0b0d0a;
+}
+
+.result-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(80, 200, 140, 0.4);
+  border-radius: 8px;
+  background: rgba(40, 89, 67, 0.28);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.result-banner .material-symbols-outlined {
+  color: #6fd6a3;
+  font-size: 1.35rem;
+}
+
+.result-banner strong {
+  color: #ffffff;
+}
+
+.writeup {
+  margin-top: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.writeup summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  color: var(--gold);
+  font-weight: 800;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.writeup summary::-webkit-details-marker {
+  display: none;
+}
+
+.writeup summary .material-symbols-outlined {
+  transition: transform 200ms ease;
+}
+
+.writeup[open] summary .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+.writeup-body {
+  padding: 4px 18px 18px;
+}
+
+.writeup-body h4 {
+  margin: 18px 0 6px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.writeup-body ul,
+.writeup-body ol {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.writeup-body li {
+  margin-bottom: 8px;
+}
+
+.writeup-body li strong {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.writeup-body p {
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .project-column {
@@ -742,5 +851,132 @@ code {
   .contact-cards a {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+/* ---------- Project filters ---------- */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.proj-filter {
+  padding: 9px 17px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 160ms ease, color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.proj-filter:hover,
+.proj-filter:focus-visible {
+  transform: translateY(-2px);
+  color: #ffffff;
+  border-color: rgba(183, 134, 59, 0.7);
+}
+
+.proj-filter.is-active {
+  color: #1c1304;
+  background: linear-gradient(90deg, #b7863b, #d8ab63);
+  border-color: transparent;
+}
+
+.project-card.hide {
+  display: none;
+}
+
+/* ---------- Active Directory video heading ---------- */
+.video-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Skill chips ---------- */
+.skill-grid h3 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.skill-grid h3 .material-symbols-outlined {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 9px;
+  color: var(--gold);
+  background: rgba(183, 134, 59, 0.22);
+  font-size: 1.2rem;
+}
+
+/* Reset the nested chips container so it isn't styled like a card by `.skill-grid div`. */
+.skill-grid .skill-chips,
+.dark-section .skill-grid .skill-chips {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chips span {
+  padding: 6px 11px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.skill-chips span:hover {
+  border-color: rgba(183, 134, 59, 0.7);
+  background: rgba(183, 134, 59, 0.18);
+}
+
+/* ---------- Scroll reveal animation ---------- */
+.reveal {
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.has-js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.has-js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
