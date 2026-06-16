@@ -22,6 +22,7 @@
         <a href="#about"><span class="material-symbols-outlined" aria-hidden="true">person</span>About</a>
         <a href="#it-projects"><span class="material-symbols-outlined" aria-hidden="true">dns</span>IT Projects</a>
         <a href="#analytics-projects"><span class="material-symbols-outlined" aria-hidden="true">query_stats</span>Analytics</a>
+        <a href="#ai-work"><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>AI &amp; Automation</a>
         <a href="#experience"><span class="material-symbols-outlined" aria-hidden="true">work</span>Experience</a>
         <a href="#skills"><span class="material-symbols-outlined" aria-hidden="true">terminal</span>Skills</a>
         <a href="#education"><span class="material-symbols-outlined" aria-hidden="true">school</span>Education</a>
@@ -42,13 +43,14 @@
         <div class="intro-copy">
           <p class="eyebrow">Help Desk | Desktop Support | Business Analytics</p>
           <h1 id="intro-title">Hi, I'm Hector Enriquez Orellana.</h1>
-          <p class="typed-line">A <span id="typed-role">IT support analyst</span></p>
+          <p class="typed-line"><span id="typed-article">An</span> <span id="typed-role">IT Support Specialist</span></p>
           <p class="intro-summary">
             I combine hands-on IT support, careful troubleshooting documentation, and business analytics training to explain technical problems clearly and move users toward reliable solutions.
           </p>
           <div class="intro-actions" aria-label="Primary actions">
             <a class="button primary" href="#it-projects"><span class="material-symbols-outlined" aria-hidden="true">construction</span>IT Work</a>
             <a class="button secondary" href="#analytics-projects"><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span>Analytics Work</a>
+            <a class="button secondary" href="#ai-work"><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>AI Work</a>
             <a class="button quiet" href="assets/hector-enriquez-orellana-resume-it.pdf" download><span class="material-symbols-outlined" aria-hidden="true">download</span>Download Resume</a>
             <a class="button quiet" href="mailto:enriq.jobs@outlook.com"><span class="material-symbols-outlined" aria-hidden="true">send</span>Contact</a>
           </div>
@@ -101,7 +103,7 @@
 
         <div class="project-grid" id="project-grid">
           <article class="project-card reveal" data-category="systems">
-            <img src="assets/project-active-directory.png" alt="Windows Server Active Directory lab banner">
+            <a class="banner-link" href="assets/project-active-directory.png" target="_blank" rel="noreferrer" title="View full size in a new tab"><img src="assets/project-active-directory.png" alt="Windows Server Active Directory lab banner"></a>
             <div class="project-body">
               <div class="project-type">Systems Lab | April 2026 - Present</div>
               <h3>Windows Server, Active Directory and Network Services Lab</h3>
@@ -136,7 +138,7 @@
           </article>
 
           <article class="project-card nvidia-card reveal" data-category="hardware">
-            <img src="assets/project-nvidia-rtx.png" alt="NVIDIA GeForce RTX 5080 GPU build banner">
+            <a class="banner-link" href="assets/project-nvidia-rtx.png" target="_blank" rel="noreferrer" title="View full size in a new tab"><img src="assets/project-nvidia-rtx.png" alt="NVIDIA GeForce RTX 5080 GPU build banner"></a>
             <div class="project-body">
               <div class="project-type">Hardware &amp; Driver Troubleshooting | NVIDIA RTX 5080</div>
               <h3>RTX 5080 Black-Screen &amp; Driver Stability Fix</h3>
@@ -178,27 +180,8 @@
             </div>
           </article>
 
-          <article class="project-card reveal" data-category="systems">
-            <img src="assets/project-it-device-tracker.png" alt="Illustration for IT device tracker database project">
-            <div class="project-body">
-              <div class="project-type">Database Systems | IT Asset Management</div>
-              <h3>IT Devices and Software Tracker</h3>
-              <p>Designed a relational inventory system for a consulting-company scenario to track employees, laptops, assigned devices, software packages, and software installations. Built for a MIST 725 database systems project, it centralizes the device, software, user, and asset details that IT teams usually spread across multiple systems and spreadsheets, so asset visibility and reporting stay accurate.</p>
-              <ul>
-                <li>Built MySQL tables for employees, laptop inventory, software catalog, device assignments, and software tracker relationships, with keys that link each device and install back to a user.</li>
-                <li>Organized the build into separate SQL scripts for table creation, data insertion, table display, and validation test queries, so the database is repeatable and easy to rebuild.</li>
-                <li>Wrote SQL queries to identify hardware assigned to users, installed software by device, popular computer models, and top installed software packages.</li>
-                <li>Connected MySQL to Python using SQLAlchemy and Pandas, then visualized query results with Matplotlib.</li>
-                <li>Used a Jupyter notebook to read the live MySQL data with Pandas and answer operational questions about device assignments, installed software, and asset status.</li>
-                <li>Documented the full design in a database systems project report covering the schema, the queries, and the reporting findings.</li>
-              </ul>
-              <div class="tool-row"><span>MySQL</span><span>SQL</span><span>Python</span><span>Pandas</span><span>SQLAlchemy</span><span>Matplotlib</span><span>Jupyter</span><span>Database Design</span></div>
-              <a class="text-link" href="https://github.com/Hecti12/IT-Devices-and-Software-Tracker_Relational-Databse-and-Data-Visualization" target="_blank" rel="noreferrer">View Repository</a>
-            </div>
-          </article>
-
           <article class="project-card reveal" data-category="networking">
-            <img src="assets/project-dns.png" alt="DNS Traffic Analysis lab banner">
+            <a class="banner-link" href="assets/project-dns.png" target="_blank" rel="noreferrer" title="View full size in a new tab"><img src="assets/project-dns.png" alt="DNS Traffic Analysis lab banner"></a>
             <div class="project-body">
               <div class="project-type">Networking Lab | DNS Troubleshooting</div>
               <h3>DNS Traffic Analysis Lab</h3>
@@ -216,12 +199,56 @@
             </div>
           </article>
 
-          <article class="project-card compact wide-card reveal" data-category="networking">
+          <article class="project-card reveal" data-category="systems">
+            <a class="banner-link" href="assets/google-admin-mfa-hardening.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/google-admin-mfa-hardening.png" alt="Google Workspace Admin Console diagram: multi-factor authentication with Google Authenticator and FIDO2, users and groups, access controls, organizational units, and domain and email settings"></a>
+            <div class="project-body">
+              <div class="project-type">Systems | Google Workspace Admin &amp; MFA Hardening</div>
+              <h3>Google Workspace Admin &amp; MFA Hardening</h3>
+              <p>Administering the Google Workspace environment for our web studio from the Google Admin console, with a focus on hardening identity security. I enforce multi-factor authentication with the Google Authenticator app and apply security best practices to protect company accounts and data. This is hands-on systems administration experience I am actively building.</p>
+              <ul>
+                <li>Enforced multi-factor authentication (MFA) for all users and required it for privileged and admin accounts.</li>
+                <li>Standardized on the Google Authenticator app, with FIDO2 security keys as a strong second option, and moved away from weak factors like SMS and voice call.</li>
+                <li>Tuned re-authentication frequency and access controls for sensitive accounts instead of trusting devices indefinitely.</li>
+                <li>Managed user accounts, groups, and organizational units, plus onboarding and offboarding for the team.</li>
+                <li>Maintained domain and email settings, including DNS and MX records for the studio's domain.</li>
+              </ul>
+              <div class="tool-row"><span>Google Workspace</span><span>Google Admin Console</span><span>MFA Hardening</span><span>Google Authenticator</span><span>FIDO2</span><span>User &amp; Group Management</span><span>Access Control</span><span>DNS / MX</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="systems">
+            <a class="banner-link" href="assets/project-it-device-tracker.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/project-it-device-tracker.png" alt="IT Devices and Software Tracker diagram: entity-relationship schema for employees, laptops, assignments, software, and installations, plus a MySQL to Python, pandas, and matplotlib reporting pipeline"></a>
+            <div class="project-body">
+              <div class="project-type">Database Systems | IT Asset Management</div>
+              <h3>IT Devices and Software Tracker</h3>
+              <p>Designed a relational inventory system for a consulting-company scenario to track employees, laptops, assigned devices, software packages, and software installations. Built as a database systems project, it centralizes the device, software, user, and asset details that IT teams usually spread across multiple systems and spreadsheets, so asset visibility and reporting stay accurate.</p>
+              <ul>
+                <li>Built MySQL tables for employees, laptop inventory, software catalog, device assignments, and software tracker relationships, with keys that link each device and install back to a user.</li>
+                <li>Organized the build into separate SQL scripts for table creation, data insertion, table display, and validation test queries, so the database is repeatable and easy to rebuild.</li>
+                <li>Wrote SQL queries to identify hardware assigned to users, installed software by device, popular computer models, and top installed software packages.</li>
+                <li>Connected MySQL to Python using SQLAlchemy and Pandas, then visualized query results with Matplotlib.</li>
+                <li>Used a Jupyter notebook to read the live MySQL data with Pandas and answer operational questions about device assignments, installed software, and asset status.</li>
+                <li>Documented the full design in a database systems project report covering the schema, the queries, and the reporting findings.</li>
+              </ul>
+              <div class="tool-row"><span>MySQL</span><span>SQL</span><span>Python</span><span>Pandas</span><span>SQLAlchemy</span><span>Matplotlib</span><span>Jupyter</span><span>Database Design</span></div>
+              <a class="text-link" href="https://github.com/Hecti12/IT-Devices-and-Software-Tracker_Relational-Databse-and-Data-Visualization" target="_blank" rel="noreferrer">View Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="networking">
+            <a class="banner-link" href="assets/project-azure-networking.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/project-azure-networking.png" alt="Azure networking and Wireshark packet analysis lab banner showing the VNet topology and a captured ICMP, SSH, DHCP, DNS, and RDP packet list"></a>
             <div class="project-body">
               <div class="project-type">Azure Lab | Feb 2026 - Mar 2026</div>
               <h3>Azure Networking and Packet Analysis</h3>
-              <p>Deployed Windows 10 and Ubuntu virtual machines in Azure, validated connectivity with Remote Desktop and private IP addressing, and analyzed ICMP, SSH, DHCP, DNS, and RDP traffic.</p>
-              <div class="tool-row"><span>Azure VMs</span><span>Ubuntu</span><span>Windows 10</span><span>Network Security Groups</span><span>Wireshark</span></div>
+              <p>Built a small cloud environment in Azure to capture and analyze live network traffic between virtual machines, then used Network Security Group rules to control that traffic and confirm the changes with packet capture.</p>
+              <ul>
+                <li>Deployed Windows 10 and Ubuntu virtual machines into a shared Resource Group and placed them on the same Virtual Network and subnet so they could communicate directly.</li>
+                <li>Connected to the Windows VM over Remote Desktop, installed Wireshark, and captured ICMP, SSH, DHCP, DNS, and RDP traffic by filtering for one protocol at a time.</li>
+                <li>Blocked inbound ICMP on the Ubuntu VM's Network Security Group during a live ping, watched the replies stop in Wireshark, then re-enabled the rule and confirmed traffic resumed in real time.</li>
+                <li>Used PowerShell to drive activity (<code>ping</code>, SSH, <code>ipconfig /renew</code>, and <code>nslookup</code>) and matched each action to the packets it generated, including why RDP streams traffic continuously while other protocols only appear on demand.</li>
+                <li>Cleaned up the environment by closing the Remote Desktop session and deleting the Resource Group to avoid leaving resources running.</li>
+              </ul>
+              <div class="tool-row"><span>Azure VMs</span><span>Virtual Network</span><span>Network Security Groups</span><span>Wireshark</span><span>Ubuntu</span><span>Windows 10</span><span>PowerShell</span><span>Remote Desktop</span></div>
             </div>
           </article>
         </div>
@@ -278,7 +305,117 @@
                 <li>Used Excel source data and Tableau workbook assets to communicate executive-level sales insights.</li>
               </ul>
               <div class="tool-row"><span>Tableau</span><span>Excel</span><span>KPI Design</span><span>Sales Analysis</span><span>Dashboarding</span></div>
-              <a class="text-link" href="https://github.com/Hecti12/Product-Sales-Analysis---Case-Study-Nintendo-Switch-Sales" target="_blank" rel="noreferrer">View Repository</a>
+              <div class="project-actions">
+                <a class="text-link" href="https://public.tableau.com/app/profile/hector.enriquez.orellana/viz/NintendoSwitchSalesAnalysis_17561042169100/Dashboard1/" target="_blank" rel="noreferrer">View Tableau Dashboard</a>
+                <a class="text-link" href="https://github.com/Hecti12/Product-Sales-Analysis---Case-Study-Nintendo-Switch-Sales" target="_blank" rel="noreferrer">View Repository</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-panel dark-section" id="ai-work" aria-labelledby="ai-title">
+        <div class="section-heading">
+          <p class="eyebrow">AI &amp; Automation</p>
+          <h2 id="ai-title">Building, validating, and automating with AI.</h2>
+          <p>My main focus here is Side Quest Web Studio, a web design venture I am building with a partner to deliver professional, AI-built websites for clients across industries. The same approach runs through the rest of my AI work: validating my analytics projects against leading models, automating research and Excel data tasks, and researching how AI is reshaping the job market.</p>
+        </div>
+
+        <div class="ai-grid">
+          <article class="project-card ai-card wide-card flush-top reveal">
+            <img class="pipeline-banner" src="assets/ai-side-quest-pipeline.png" alt="Side Quest Web Studio pipeline: client discovery, industry fit across film, e-commerce, manufacturing, and medical, design and content planning, Claude pair programming with Hector and Santiago, React Vite Tailwind build, manual review and QA, deploy on Vercel, and launch live site">
+            <div class="project-body">
+              <div class="project-type">Web Design Studio | AI-Built, Vercel-Deployed</div>
+              <h3>Side Quest Web Studio <span class="wip-pill">Work in progress</span></h3>
+              <p>Side Quest Web Studio is the business venture I am building with my partner <a href="https://github.com/sasaca" target="_blank" rel="noreferrer">Santiago</a>. We are both from Guatemala and combine our MBA backgrounds with our IT work experience to launch it. After seeing how professional Claude-built websites can look, we turned it into a service: designing and deploying fast, modern, professional websites for clients, then shipping them on Vercel.</p>
+
+              <div class="result-banner">
+                <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+                <span><strong>Bringing on clients across industries:</strong> film, e-commerce, manufacturing, and the medical sector.</span>
+              </div>
+
+              <ul>
+                <li>End-to-end website design and build with Claude as an AI pair programmer, from layout and content to responsive styling.</li>
+                <li>Modern, maintainable stack: React, Vite, and Tailwind CSS, deployed on Vercel with Git-based continuous deployment.</li>
+                <li>Every build reviewed and tested by hand before launch, so AI speed never comes at the cost of quality.</li>
+                <li>Lumetric Films is one of our first builds (below).</li>
+              </ul>
+              <div class="tool-row"><span>Claude</span><span>Prompt Engineering</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>Vercel</span><span>GitHub</span></div>
+              <div class="project-actions">
+                <a class="text-link" href="https://sidequest-weblabs.vercel.app/en#work" target="_blank" rel="noreferrer">Visit Side Quest Web Studio</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ai-card reveal">
+            <a class="banner-link" href="assets/ai-lumetric-films.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/ai-lumetric-films.png" alt="Lumetric Films banner: a Side Quest build, full production cinematic video and photography portfolio website, live on Vercel"></a>
+            <div class="project-body">
+              <div class="project-type">Side Quest Build | Live on Vercel</div>
+              <h3>Lumetric Films &mdash; Cinematic Portfolio Website</h3>
+              <p>One of Side Quest Web Studio's first builds: a full production website for Lumetric Films, a cinematic video and photography studio. Built with Claude as an AI pair programmer as a React single-page app, styled with Tailwind CSS, bundled with Vite, and deployed live on Vercel.</p>
+              <ul>
+                <li>Built the front end with Claude: component structure, responsive layout, navigation, and a cinematic visual style.</li>
+                <li>Wired Vercel Analytics and Git-based continuous deployment, so each commit ships automatically.</li>
+                <li>Reviewed and tested every change locally before pushing.</li>
+              </ul>
+              <div class="tool-row"><span>Claude</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>Vercel</span><span>Vercel Analytics</span></div>
+              <div class="project-actions">
+                <a class="text-link" href="https://lumetric-films.vercel.app" target="_blank" rel="noreferrer">Visit the live site</a>
+                <a class="text-link" href="https://github.com/lumetricfilms/lumetric-films" target="_blank" rel="noreferrer">View Repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ai-card reveal">
+            <a class="banner-link" href="assets/ai-augmented-analytics.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/ai-augmented-analytics.png" alt="AI-Augmented Business Analytics banner: using leading AI models to validate logic, catch mistakes, and strengthen final deliverables"></a>
+            <div class="project-body">
+              <div class="project-type">AI-Assisted Analysis | Validation &amp; QA</div>
+              <h3>AI-Augmented Business Analytics</h3>
+              <p>I put my business analytics projects through leading AI models to validate the logic, catch mistakes, and strengthen the final deliverables. AI became a second set of eyes on the airline satisfaction analysis, the real estate optimization model, and the Nintendo Switch sales dashboards.</p>
+              <ul>
+                <li><strong>Claude Opus</strong> for reasoning checks, reviewing Python code, and sanity-testing modeling assumptions and conclusions.</li>
+                <li><strong>ChatGPT Codex</strong> for generating and debugging analysis code and speeding up repetitive data tasks.</li>
+                <li><strong>Google Gemini</strong> for image creation and visual assets used to present the projects.</li>
+                <li>Cross-checked outputs across models so the final numbers, charts, and recommendations held up to scrutiny.</li>
+              </ul>
+              <div class="tool-row"><span>Claude Opus</span><span>ChatGPT Codex</span><span>Google Gemini</span><span>Prompt Engineering</span><span>Python</span><span>Excel</span><span>Tableau</span></div>
+              <div class="project-actions">
+                <a class="text-link" href="#analytics-projects">See the analytics projects</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card ai-card reveal">
+            <a class="banner-link" href="assets/ai-agentic-research.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/ai-agentic-research.png" alt="Agentic Research and Excel Data Workflows banner: AI agents automating data gathering, cleanup, reporting, and repeatable workflow tasks"></a>
+            <div class="project-body">
+              <div class="project-type">AI Agents | Research &amp; Data Automation</div>
+              <h3>Agentic Research &amp; Excel Data Workflows</h3>
+              <p>I use AI agents to take on repetitive, time-consuming work: gathering and summarizing research and keeping Excel datasets accurate and up to date, the same kind of reporting and tracking work I do in business analytics and IT support.</p>
+              <ul>
+                <li>Ran agents to conduct background research, compile sources, and summarize findings into usable notes.</li>
+                <li>Used agents to update, clean, and maintain data in Excel spreadsheets, reducing manual entry and copy-paste errors.</li>
+                <li>Built repeatable prompts and workflows so the same task can be re-run reliably instead of redone by hand.</li>
+                <li>Kept a human-in-the-loop review step to verify agent output before it reached a final report or dataset.</li>
+              </ul>
+              <div class="tool-row"><span>AI Agents</span><span>Prompt Engineering</span><span>Claude</span><span>Excel</span><span>Research</span><span>Data Cleaning</span><span>Workflow Automation</span></div>
+            </div>
+          </article>
+
+          <article class="project-card ai-card reveal">
+            <a class="banner-link" href="assets/ai-research-paper.png" target="_blank" rel="noreferrer" title="View full diagram in a new tab"><img src="assets/ai-research-paper.png" alt="AI Tools and Demos in the Modern Job Market banner: original research on AI tools in resume writing, interviews, and career growth"></a>
+            <div class="project-body">
+              <div class="project-type">Original Research | 2023 - 2025</div>
+              <h3>AI Tools &amp; Demos in the Modern Job Market</h3>
+              <p>I authored a research paper examining how AI tools have reshaped the job search from 2023 to 2025, from resume writing and interview prep to employers like Meta beginning to allow AI in coding interviews. It compares platforms such as WonsultingAI, LockedIn AI, Cluely, Teal, and Final Round AI, and argues that the real edge is using AI effectively and ethically rather than hiding it.</p>
+              <ul>
+                <li>Researched and compared leading AI job-search and interview-prep tools, including a structured comparison table of strengths, limitations, and reputation.</li>
+                <li>Covered AI resume writing, interview preparation, and how employers are responding to candidate AI use.</li>
+                <li>Documented every claim with cited sources in a formatted reference list.</li>
+              </ul>
+              <div class="tool-row"><span>Research</span><span>Technical Writing</span><span>AI Tooling</span><span>Market Analysis</span></div>
+              <div class="project-actions">
+                <a class="text-link" href="assets/ai-tools-modern-job-market.pdf" target="_blank" rel="noreferrer">Read the paper (PDF)</a>
+              </div>
             </div>
           </article>
         </div>
@@ -335,7 +472,7 @@
           </div>
           <div class="reveal">
             <h3><span class="material-symbols-outlined" aria-hidden="true">dns</span>Systems</h3>
-            <div class="skill-chips"><span>Windows 10 / 11</span><span>Windows Server</span><span>Active Directory</span><span>Microsoft Entra ID</span><span>Intune</span><span>MDM</span><span>User &amp; Group Admin</span><span>Password Resets</span><span>Security Groups</span><span>NTFS / Share Permissions</span><span>Remote Desktop</span><span>Linux</span><span>macOS</span></div>
+            <div class="skill-chips"><span>Windows 10 / 11</span><span>Windows Server</span><span>Active Directory</span><span>Microsoft Entra ID</span><span>Intune</span><span>MDM</span><span>User &amp; Group Admin</span><span>Password Resets</span><span>Security Groups</span><span>NTFS / Share Permissions</span><span>Remote Desktop</span><span>Linux</span><span>macOS</span><span>Google Workspace Admin</span><span>MFA Hardening</span></div>
           </div>
           <div class="reveal">
             <h3><span class="material-symbols-outlined" aria-hidden="true">memory</span>Hardware &amp; Drivers</h3>
@@ -348,6 +485,10 @@
           <div class="reveal">
             <h3><span class="material-symbols-outlined" aria-hidden="true">query_stats</span>Analytics</h3>
             <div class="skill-chips"><span>SQL</span><span>Python</span><span>PowerShell</span><span>Excel</span><span>Business Analytics</span><span>Data Analysis</span><span>Reporting</span><span>Visio</span><span>GitHub</span><span>KPI Design</span><span>Executive Reporting</span></div>
+          </div>
+          <div class="reveal">
+            <h3><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>AI &amp; Automation</h3>
+            <div class="skill-chips"><span>Claude / Claude Opus</span><span>ChatGPT Codex</span><span>Google Gemini</span><span>AI Pair Programming</span><span>AI Agents</span><span>Prompt Engineering</span><span>Research Automation</span><span>Excel Data Automation</span><span>Output Validation</span></div>
           </div>
           <div class="reveal">
             <h3><span class="material-symbols-outlined" aria-hidden="true">apps</span>Tools</h3>

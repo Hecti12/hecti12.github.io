@@ -521,6 +521,59 @@ h3 {
   padding: 22px;
 }
 
+/* Infographic banner: show the whole image, never crop the text. */
+.project-card img.pipeline-banner {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  background: #070b16;
+}
+
+/* Let the banner bleed over the card's border/corners so it sits truly edge-to-edge. */
+.ai-grid .ai-card.flush-top {
+  overflow: hidden;
+}
+
+.ai-grid .ai-card.flush-top .pipeline-banner {
+  margin: -1px -1px 0;
+  width: calc(100% + 2px);
+  max-width: none;
+  border-radius: 0;
+}
+
+/* Clickable banners open the full-size diagram in a new tab. */
+.banner-link {
+  display: block;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.banner-link::after {
+  content: "Click to enlarge";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(15, 15, 18, 0.78);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 160ms ease;
+  pointer-events: none;
+}
+
+.banner-link:hover::after,
+.banner-link:focus-visible::after {
+  opacity: 1;
+}
+
+.banner-link:hover img {
+  filter: brightness(1.05);
+}
+
 .project-type {
   margin-bottom: 8px;
   color: var(--gold);
@@ -955,6 +1008,48 @@ code {
 .skill-chips span:hover {
   border-color: rgba(183, 134, 59, 0.7);
   background: rgba(183, 134, 59, 0.18);
+}
+
+/* ---------- AI & Automation section ---------- */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.ai-grid .ai-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-grid .ai-card .project-body {
+  flex: 1 1 auto;
+}
+
+.ai-grid .wide-card {
+  grid-column: 1 / -1;
+}
+
+.wip-pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Scroll reveal animation ---------- */

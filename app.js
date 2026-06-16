@@ -1,14 +1,21 @@
 const roles = [
-  "IT support analyst",
-  "help desk candidate",
-  "business analytics translator",
-  "Active Directory lab builder",
-  "GPU and hardware troubleshooter",
-  "DNS troubleshooting documenter",
-  "bilingual technical communicator",
+  "IT Support Specialist",
+  "Help Desk Analyst",
+  "Desktop Support Technician",
+  "Technical Support Analyst",
+  "Windows & Microsoft 365 Troubleshooter",
+  "Active Directory Support Lab Builder",
+  "DNS & Network Troubleshooting Documenter",
+  "Ticketing Workflow Problem Solver",
+  "Endpoint & Hardware Support Technician",
+  "Documentation-Focused IT Analyst",
+  "Prompt Engineer",
+  "AI Implementation Specialist",
+  "Bilingual Technical Communicator",
 ];
 
 const typedRole = document.querySelector("#typed-role");
+const typedArticle = document.querySelector("#typed-article");
 const sideNav = document.querySelector(".side-nav");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelectorAll(".side-nav nav a");
@@ -20,6 +27,9 @@ function typeRole() {
   if (!typedRole) return;
 
   const currentRole = roles[roleIndex];
+  if (typedArticle) {
+    typedArticle.textContent = /^[aeiou]/i.test(currentRole) ? "An" : "A";
+  }
   typedRole.textContent = currentRole.slice(0, letterIndex);
 
   if (!deleting && letterIndex < currentRole.length) {
@@ -84,6 +94,7 @@ const stagger = (selector, step) => {
 stagger("#project-grid .reveal", 90);
 stagger(".skill-grid .reveal", 70);
 stagger(".analytics-grid .reveal", 90);
+stagger(".ai-grid .reveal", 90);
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
