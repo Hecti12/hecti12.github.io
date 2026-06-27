@@ -128,3 +128,134 @@ projFilters.forEach((btn) => {
     });
   });
 });
+
+/* ---------- Banner lightbox gallery ---------- */
+// Clicking any banner opens an in-page gallery instead of a new browser tab.
+// Visitors browse every banner with the arrows, keyboard, swipe, or thumbnails.
+const galleryTriggers = Array.from(document.querySelectorAll(".banner-link, .pipeline-banner"));
+
+if (galleryTriggers.length) {
+  const slides = galleryTriggers.map((trigger) => {
+    const img = trigger.matches("img") ? trigger : trigger.querySelector("img");
+    const src = trigger.matches("a") ? trigger.getAttribute("href") : img.getAttribute("src");
+    return { src, alt: img ? img.getAttribute("alt") || "" : "" };
+  });
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.id = "banner-lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Banner gallery");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.innerHTML = `
+    <button class="lb-close" type="button" aria-label="Close gallery"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+    <button class="lb-nav lb-prev" type="button" aria-label="Previous banner"><span class="material-symbols-outlined" aria-hidden="true">chevron_left</span></button>
+    <div class="lb-stage">
+      <img class="lb-image" src="" alt="">
+    </div>
+    <button class="lb-nav lb-next" type="button" aria-label="Next banner"><span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></button>
+    <p class="lb-caption"></p>
+    <div class="lb-counter"><span class="lb-index">1</span> / <span class="lb-total">${slides.length}</span></div>
+    <div class="lb-thumbs" aria-label="Banner thumbnails"></div>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lbStage = lightbox.querySelector(".lb-stage");
+  const lbImage = lightbox.querySelector(".lb-image");
+  const lbCaption = lightbox.querySelector(".lb-caption");
+  const lbIndexLabel = lightbox.querySelector(".lb-index");
+  const thumbsWrap = lightbox.querySelector(".lb-thumbs");
+
+  const thumbs = slides.map((slide, i) => {
+    const thumb = document.createElement("button");
+    thumb.type = "button";
+    thumb.className = "lb-thumb";
+    thumb.setAttribute("aria-label", `View banner ${i + 1} of ${slides.length}`);
+    thumb.innerHTML = `<img src="${slide.src}" alt="" loading="lazy">`;
+    thumb.addEventListener("click", () => show(i));
+    thumbsWrap.appendChild(thumb);
+    return thumb;
+  });
+
+  let current = 0;
+  let lastFocused = null;
+
+  function render() {
+    const slide = slides[current];
+    lbImage.setAttribute("src", slide.src);
+    lbImage.setAttribute("alt", slide.alt);
+    lbCaption.textContent = slide.alt;
+    lbIndexLabel.textContent = String(current + 1);
+    thumbs.forEach((thumb, i) => {
+      const active = i === current;
+      thumb.classList.toggle("is-active", active);
+      thumb.setAttribute("aria-current", active ? "true" : "false");
+      if (active) thumb.scrollIntoView({ block: "nearest", inline: "center" });
+    });
+  }
+
+  function show(i) {
+    current = (i + slides.length) % slides.length;
+    render();
+  }
+
+  function openAt(i) {
+    lastFocused = document.activeElement;
+    show(i);
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lb-open");
+    lightbox.querySelector(".lb-close").focus();
+  }
+
+  function close() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lb-open");
+    if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  }
+
+  galleryTriggers.forEach((trigger, i) => {
+    if (trigger.matches("img")) {
+      trigger.setAttribute("role", "button");
+      trigger.setAttribute("tabindex", "0");
+      trigger.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openAt(i);
+        }
+      });
+    }
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openAt(i);
+    });
+  });
+
+  lightbox.querySelector(".lb-close").addEventListener("click", close);
+  lightbox.querySelector(".lb-prev").addEventListener("click", () => show(current - 1));
+  lightbox.querySelector(".lb-next").addEventListener("click", () => show(current + 1));
+
+  // Click anywhere that isn't the image, a control, or a thumbnail closes.
+  lightbox.addEventListener("click", (event) => {
+    if (!event.target.closest(".lb-image, .lb-nav, .lb-close, .lb-thumb, .lb-caption, .lb-counter")) close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (event.key === "Escape") close();
+    else if (event.key === "ArrowLeft") show(current - 1);
+    else if (event.key === "ArrowRight") show(current + 1);
+  });
+
+  // Swipe across the image (thumbnails keep their own horizontal scroll).
+  let touchStartX = null;
+  lbStage.addEventListener("touchstart", (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+  lbStage.addEventListener("touchend", (event) => {
+    if (touchStartX === null) return;
+    const dx = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
+    touchStartX = null;
+  }, { passive: true });
+}

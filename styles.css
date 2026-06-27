@@ -541,15 +541,21 @@ h3 {
   border-radius: 0;
 }
 
-/* Clickable banners open the full-size diagram in a new tab. */
+/* Clickable banners open the in-page gallery (see .lightbox). */
 .banner-link {
   display: block;
   position: relative;
   cursor: zoom-in;
 }
 
+.banner-link:focus-visible,
+.pipeline-banner:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .banner-link::after {
-  content: "Click to enlarge";
+  content: "Click to open gallery";
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1073,5 +1079,209 @@ code {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ---------- Banner lightbox gallery ---------- */
+.pipeline-banner {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.8vw, 18px);
+  padding: clamp(10px, 2vw, 24px);
+  background: rgba(9, 9, 11, 0.93);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.lb-open {
+  overflow: hidden;
+}
+
+.lb-stage {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+}
+
+.lb-image {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-width: 96vw;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #0b0d0a;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lb-caption {
+  flex: 0 0 auto;
+  max-width: 880px;
+  margin: 0;
+  padding: 0 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.lb-close,
+.lb-nav {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.lb-close:hover,
+.lb-close:focus-visible,
+.lb-nav:hover,
+.lb-nav:focus-visible {
+  background: rgba(183, 134, 59, 0.32);
+  border-color: rgba(183, 134, 59, 0.7);
+}
+
+.lb-close {
+  position: absolute;
+  top: clamp(12px, 2.4vw, 24px);
+  right: clamp(12px, 2.4vw, 24px);
+  width: 46px;
+  height: 46px;
+}
+
+.lb-close .material-symbols-outlined {
+  font-size: 1.6rem;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  transform: translateY(-50%);
+}
+
+.lb-nav:hover,
+.lb-nav:focus-visible {
+  transform: translateY(-50%) scale(1.07);
+}
+
+.lb-prev {
+  left: clamp(8px, 2vw, 28px);
+}
+
+.lb-next {
+  right: clamp(8px, 2vw, 28px);
+}
+
+.lb-nav .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+.lb-counter {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.lb-thumbs {
+  display: flex;
+  gap: 10px;
+  max-width: min(1180px, 92vw);
+  padding: 6px 2px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(183, 134, 59, 0.6) transparent;
+}
+
+.lb-thumbs::-webkit-scrollbar {
+  height: 8px;
+}
+
+.lb-thumbs::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(183, 134, 59, 0.5);
+}
+
+.lb-thumb {
+  flex: 0 0 auto;
+  width: 108px;
+  height: 60px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 7px;
+  background: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.lb-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lb-thumb:hover,
+.lb-thumb:focus-visible {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.lb-thumb.is-active {
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    transition: none;
+  }
+
+  .lb-thumbs {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .lb-nav {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lb-thumb {
+    width: 86px;
+    height: 48px;
   }
 }
